@@ -1,0 +1,13 @@
+
+* patch site-packages/qpid/specs_config.py 
+
+import sys
+
+frozen = getattr(sys, "frozen", "")
+
+if frozen:
+	AMQP_SPEC_DIR=os.path.join(os.path.dirname(sys.executable), "specs")
+else:
+	AMQP_SPEC_DIR=os.path.join(os.path.dirname(os.path.abspath(__file__)), "specs")
+
+* copy site-packages/qpid/specs to distribution directory
